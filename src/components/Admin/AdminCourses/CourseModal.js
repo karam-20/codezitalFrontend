@@ -121,7 +121,7 @@ function VideoCard({
         <p className="text-gray-500 text-sm font-medium">{description}</p>
       </div>
       <button
-        onClick={deleteLectureHandler(courseId, lectureId)}
+        onClick={() => deleteLectureHandler(courseId, lectureId)}
         className="text-[#4C00FF]"
       >
         <RiDeleteBin7Fill className="bg-[#d7c5ff] p-2 rounded-md" size={30} />

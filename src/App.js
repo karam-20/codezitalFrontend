@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./components/About";
 import AdminCourses from "./components/Admin/AdminCourses/AdminCourses";
 import CreateCourse from "./components/Admin/CreateCourse/CreateCourse";
-import Dashboard from "./components/Admin/Dashboard/Dashboard";
 import Users from "./components/Admin/Users/Users";
 import ForgotPassword from "./components/auth/ForgotPassword";
 import Login from "./components/auth/Login";
@@ -140,18 +139,7 @@ function App() {
             <Route path="/paymentsuccess" element={<PaymentSuccess />} />
             <Route path="/paymentfail" element={<PaymentFail />} />
             {/* admin routes */}
-            <Route
-              path="/admin/dashboard"
-              element={
-                <ProtectedRoute
-                  adminRoute={true}
-                  isAdmin={user && user.role === "admin"}
-                  isAuthenticated={isAuthenticated}
-                >
-                  <Dashboard />
-                </ProtectedRoute>
-              }
-            />
+            
             <Route
               path="/admin/admincourses"
               element={

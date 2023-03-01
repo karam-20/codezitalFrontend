@@ -1,62 +1,66 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { toast } from "react-hot-toast";
 import { RiDeleteBin7Fill } from "react-icons/ri";
+import { Oval } from "react-loader-spinner";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  deleteUser,
+  getAllUsers,
+  updateUserRole,
+} from "../../../redux/actions/admin";
 import Sidebar from "../Sidebar";
 
 export default function Users() {
   const deleteUserHandler = (userId) => {
-    console.log(userId);
+    dispatch(deleteUser(userId));
   };
   const changeRoleHandler = (userId) => {
-    console.log(userId);
+    dispatch(updateUserRole(userId));
   };
-  const users = [
-    {
-      _id: "aaffsf",
-      name: "karampal",
-      role: "admin",
-      subscription: {
-        status: "active",
-      },
-      email: "jangir@gmail.com",
-    },
-    {
-      _id: "aaffdffsf",
-      name: "karampal",
-      role: "admin",
-      subscription: {
-        status: "active",
-      },
-      email: "jangir@gmail.com",
-    },
-  ];
+  const { users, loading, error, message } = useSelector(
+    (state) => state.admin
+  );
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+      dispatch({ type: "clearError" });
+    }
+    if (message) {
+      toast.success(message);
+      dispatch({ type: "clearMessage" });
+    }
+
+    dispatch(getAllUsers());
+  }, [dispatch, error, message]);
   return (
-    <div className="grid grid-cols-1 md:grid-cols-6 mx-auto">
-      <div className="md:col-span-5 mt-20 ">
-        <h1 className="text-2xl text-center md:pl-16 md:text-left font-medium">
-          All Users
-        </h1>
-        <div className="w-[100vw] md:w-full p-4 md:p-16 overflow-x-auto">
+    <div className="font-body text-[#363A45] grid grid-cols-1 md:grid-cols-6 mx-auto">
+      <div className="md:col-span-5 mt-20 p-6 md:p-16 ">
+        <h1 className="text-3xl md:text-left font-bold uppercase">All Users</h1>
+        <div className="w-full md:w-full mt-10 overflow-x-auto">
           <table className="w-full ">
             <thead>
               <tr>
-                <th className="text-left pr-[100px]">Id</th>
-                <th className="text-left pr-[100px]">Name</th>
-                <th className="text-left pr-[100px]">Email</th>
-                <th className="text-left pr-[100px]">Role</th>
-                <th className="text-left pr-[100px]">Subscription</th>
-                <th className=" pr-[100px]">Action</th>
+                
+                <th className="text-left pr-[100px] pb-4">Name</th>
+                <th className="text-left pr-[100px] pb-4">Email</th>
+                <th className="text-left pr-[100px] pb-4">Role</th>
+                <th className="text-left">Action</th>
               </tr>
             </thead>
 
             <tbody>
-              {users.map((item) => (
-                <Row
-                  changeRoleHandler={changeRoleHandler}
-                  deleteUserHandler={deleteUserHandler}
-                  key={item._id}
-                  item={item}
-                />
-              ))}
+              {users &&
+                users.map((item) => (
+                  <Row
+                    changeRoleHandler={changeRoleHandler}
+                    deleteUserHandler={deleteUserHandler}
+                    key={item._id}
+                    item={item}
+                    loading={loading}
+                  />
+                ))}
             </tbody>
           </table>
         </div>
@@ -65,25 +69,45 @@ export default function Users() {
     </div>
   );
 }
-function Row({ item, changeRoleHandler, deleteUserHandler }) {
+function Row({ item, changeRoleHandler, deleteUserHandler ,loading}) {
   return (
-    <tr>
-      <td>#{item._id}</td>
-      <td>{item.name}</td>
-      <td>{item.email}</td>
-      <td>{item.role}</td>
-      <td>{item.subscription.status === "active" ? "Active" : "Not Active"}</td>
-      <td>
-        <div className="flex justify-end items-center gap-2">
+    <tr className="p-3">
+      
+      <td className="pb-4">{item.name}</td>
+      <td className="pb-4">{item.email}</td>
+      <td className="pb-4">{item.role}</td>
+
+      <td className="pb-4">
+        <div className="flex items-center gap-4">
           <button
             onClick={() => changeRoleHandler(item._id)}
-            className="px-3 py-2 border border-purple-500"
+            className="w-[140px] bg-purple-500 text-white py-2 rounded-lg text-sm font-medium"
           >
             Change Role
           </button>
-          <button onClick={() => deleteUserHandler(item._id)}>
-            <RiDeleteBin7Fill />
+          
+          <button className="text-purple-500" onClick={() => deleteUserHandler(item._id)}>
+            {loading ? (
+              <div className="flex p-1 bg-[#d7c5ff] rounded-md items-center justify-center">
+                <Oval
+                  height={18}
+                  width={18}
+                  color="#FFFFFF"
+                  wrapperStyle={{}}
+                  wrapperClass=""
+                  visible={true}
+                  ariaLabel="oval-loading"
+                  secondaryColor="#FFFFFF"
+                  strokeWidth={4}
+                  strokeWidthSecondary={4}
+                />
+              </div>
+            ) : (
+              <RiDeleteBin7Fill className="bg-[#d7c5ff] p-2 rounded-md" size={30}/>
+            )}
           </button>
+        
+          
         </div>
       </td>
     </tr>

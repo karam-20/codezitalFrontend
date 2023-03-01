@@ -30,55 +30,55 @@ export default function Header({ isAuthenticated, user }) {
         className={`fixed ${
           isOpen
             ? "left-0 transition-all duration-200"
-            : "-left-72 md:left-[-1370px] transition-all duration-200"
-        } top-0 w-8/12 md:w-2/12 bg-white/70 shadow-lg backdrop-blur-md h-full ease-in-out p-6`}
+            : "-left-86 md:left-[-1370px] transition-all duration-200"
+        } top-0 w-10/12 md:w-2/12 bg-white/70 shadow-lg backdrop-blur-md h-full ease-in-out p-6`}
       >
         <div className="flex items-center justify-between pb-2">
           <div>
             <img className="w-28 -mb-2" alt="logo" src={logo} />
           </div>
           <AiOutlineClose
-            className="text-2xl cursor-pointer"
+            className="text-3xl cursor-pointer"
             onClick={handler}
           />
         </div>
-        <div className="flex flex-col space-y-10 mt-10">
+        <div className="flex flex-col space-y-12 mt-12">
           <Link to="/">
-            <button onClick={handler} className="text-lg font-medium">
+            <button onClick={handler} className="text-xl font-medium">
               Home
             </button>
             <hr className="bg-[#9875FB] w-10" />
           </Link>
           <Link to="/courses">
-            <button onClick={handler} className="text-lg font-medium">
+            <button onClick={handler} className="text-xl font-medium">
               All Courses
             </button>
             <hr className="bg-[#9875FB] w-10" />
           </Link>
           <Link to="/request">
-            <button onClick={handler} className="text-lg font-medium">
+            <button onClick={handler} className="text-xl font-medium">
               Request a Course
             </button>
             <hr className="bg-[#9875FB] w-10" />
           </Link>
           <Link to="/contact">
-            <button onClick={handler} className="text-lg font-medium">
+            <button onClick={handler} className="text-xl font-medium">
               Contact us
             </button>
             <hr className="bg-[#9875FB] w-10" />
           </Link>
           <Link to="/about">
-            <button onClick={handler} className="text-lg font-medium">
+            <button onClick={handler} className="text-xl font-medium">
               About us
             </button>
             <hr className="bg-[#9875FB] w-10" />
           </Link>
         </div>
-        <div className="absolute flex items-center space-x-5 bottom-10">
+        <div className="absolute flex items-center space-x-10 p-2 bottom-10">
           {isAuthenticated ? (
             <>
-              <div className="flex flex-col items-center space-y-3">
-                <div className="flex space-x-5">
+              <div className="flex flex-col items-center space-y-7">
+                <div className="flex space-x-20">
                   <Link to="/profile">
                     <button
                       onClick={handler}
@@ -98,7 +98,7 @@ export default function Header({ isAuthenticated, user }) {
                   </div>
                 </div>
                 {user && user.role === "admin" && (
-                  <Link to="/admin/dashboard">
+                  <Link to="/admin/users">
                     <div className="bg-gray-200 px-4 py-2 rounded-md flex items-center space-x-1">
                       <RiDashboardFill />
                       <button onClick={handler} className="font-medium">

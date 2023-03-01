@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/actions/user";
+// import { loginPage } from "../../assets/images/loginPage.png";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,12 +12,13 @@ const Login = () => {
     e.preventDefault();
   };
   return (
-    <div className="w-full font-body flex flex-col justify-center items-center mx-auto mt-20 h-[600px]">
-      <div className="mx-auto space-y-12">
-        <h1 className="text-2xl">
-          Welcome,{" "}
-          <span className="font-semibold tracking-widest">Code Zital</span>
-        </h1>
+    <div className="w-full font-body h-[100vh] text-[#363A45] flex flex-col justify-center items-center mx-auto">
+      <div>{/* <img src={loginPage} alt="loginPage" /> */}</div>
+      <div className="mx-auto space-y-8">
+        <div className="flex flex-col gap-2">
+          <h1 className="text-3xl">Welcome to ,</h1>
+          <h1 className="font-semibold text-3xl tracking">FrontEnd Forearms</h1>
+        </div>
         <form onSubmit={submitHandler} className="flex flex-col space-y-5">
           <input
             className="py-3 px-4 font-body w-[300px] bg-slate-100"
@@ -46,7 +48,7 @@ const Login = () => {
           </Link>
           <button
             type="submit"
-            className="bg-[#4C00FF] py-3 text-white font-semibold"
+            className="bg-[#9875FB] py-3 text-white font-semibold"
           >
             Login
           </button>

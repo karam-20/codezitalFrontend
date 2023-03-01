@@ -3,6 +3,39 @@ import { createReducer } from "@reduxjs/toolkit";
 export const adminreducer = createReducer(
   {},
   {
+    getAllUsersRequest: (state) => {
+      state.loading = true;
+    },
+    getAllUsersSuccess: (state, action) => {
+      state.loading = false;
+      state.users = action.payload;
+    },
+    getAllUsersFail: (state, action) => {
+      state.loading = true;
+      state.error = action.payload;
+    },
+    changeRoleRequest: (state) => {
+      state.loading = true;
+    },
+    changeRoleSuccess: (state, action) => {
+      state.loading = false;
+      state.message = action.payload;
+    },
+    changeRoleFail: (state, action) => {
+      state.loading = true;
+      state.error = action.payload;
+    },
+    deleteUserRequest: (state) => {
+      state.loading = true;
+    },
+    deleteUserSuccess: (state, action) => {
+      state.loading = false;
+      state.message = action.payload;
+    },
+    deleteUserFail: (state, action) => {
+      state.loading = true;
+      state.error = action.payload;
+    },
     createCourseRequest: (state) => {
       state.loading = true;
     },

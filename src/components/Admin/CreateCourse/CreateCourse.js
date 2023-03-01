@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
+import { Oval } from "react-loader-spinner";
 import { useDispatch, useSelector } from "react-redux";
 import { createCourse } from "../../../redux/actions/admin";
 import Sidebar from "../Sidebar";
@@ -48,10 +49,10 @@ export default function CreateCourse() {
   }, [message, dispatch, error]);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-6 mx-auto">
+    <div className="grid font-body text-[#363A45] grid-cols-1 md:grid-cols-6 mx-auto">
       <div className="md:col-span-5 mt-20">
-        <form onSubmit={submitHandler} className="flex flex-col items-center">
-          <h1 className="text-xl text-center mb-10 font-medium">
+        <form onSubmit={submitHandler} className="flex flex-col p-6 md:p-16">
+          <h1 className="text-3xl mb-8 md:text-left font-bold uppercase text-left">
             Create Course
           </h1>
           <div className="flex flex-col space-y-8">
@@ -113,12 +114,28 @@ export default function CreateCourse() {
                 alt="course-logo"
               />
             )}
-            <button
-              className="bg-[#4C00FF] py-3 text-white font-semibold"
-              type="submit"
-            >
-              Create
-            </button>
+            <div className="bg-[#9875FB] flex items-center justify-center py-3 w-full text-center h-[50px] text-white font-semibold">
+          <button type="submit">
+            {loading ? (
+              <div className="flex items-center justify-center">
+                <Oval
+                  height={25}
+                  width={25}
+                  color="#FFFFFF"
+                  wrapperStyle={{}}
+                  wrapperClass=""
+                  visible={true}
+                  ariaLabel="oval-loading"
+                  secondaryColor="#FFFFFF"
+                  strokeWidth={4}
+                  strokeWidthSecondary={4}
+                />
+              </div>
+            ) : (
+              "Create Course"
+            )}
+          </button>
+        </div>
           </div>
         </form>
       </div>

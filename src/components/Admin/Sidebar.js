@@ -10,13 +10,8 @@ import { Link, useLocation } from "react-router-dom";
 export default function Sidebar() {
   const Location = useLocation();
   return (
-    <div className="flex flex-col h-[100vh] space-y-6 items-center md:items-start p-10 shadow-xl">
-      <LinkButton
-        active={Location.pathname === "/admin/dashboard"}
-        url={"dashboard"}
-        Icon={RiDashboardFill}
-        text="Dashboard"
-      />
+    <div className="flex flex-col md:h-[100vh] space-y-6 items-center md:items-start p-16 shadow-xl">
+      
       <LinkButton
         active={Location.pathname === "/admin/admincourses"}
         url={"admincourses"}

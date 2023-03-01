@@ -15,7 +15,7 @@ export default function Courses() {
     id,
   }) => {
     return (
-      <div className="w-[240px] mx-auto shadow-lg p-3">
+      <div className="w-[270px] mx-auto border p-3">
         <div className="flex flex-col gap-5">
           {/* image */}
           <div>
@@ -69,10 +69,10 @@ export default function Courses() {
     }
   }, [category, message, error, keyword, dispatch]);
   return (
-    <div className="flex items-center justify-center font-body p-24">
+    <div className="flex items-center text-[#363A45] justify-center font-body p-24">
       <div className="text-[#363A45] flex flex-col mx-auto space-y-5">
         <div className="flex md:w-[100%] flex-col space-y-8">
-          <h2 className="text-3xl md:text-left font-bold uppercase text-[#363A45]">
+          <h2 className="text-3xl md:text-left font-bold uppercase">
             All Courses
           </h2>
           <input
