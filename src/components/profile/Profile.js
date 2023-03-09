@@ -75,7 +75,8 @@ export default function Profile({ user }) {
                 alt="userImage"
               />
               <button
-                className="text-[#4C00FF] font-medium"
+                className="text-white px-4 py-2 rounded-md bg-purple-600 hover:shadow-xl hover:shadow-purple-600 hover:bg-purple-800 transition-all ease-in-out duration-200 font-normal"
+
                 onClick={boxToggle}
               >
                 Change Photo
@@ -98,14 +99,14 @@ export default function Profile({ user }) {
                 </div>
               </div>
               {/* update buttons */}
-              <div className="flex flex-col md:flex-row gap-3 items-center justify-center">
+              <div className="flex flex-col md:flex-row gap-3 mt-3 items-center justify-center">
                 <Link to="/updateprofile">
-                  <button className="bg-slate-200 font-medium text-[#363A45] rounded-md px-4 py-2">
+                  <button className="bg-slate-200 font-medium hover:bg-slate-300 transition-all ease-in-out duration-200   text-[#363A45] rounded-md px-4 py-2">
                     Update Profile
                   </button>
                 </Link>
                 <Link to="/changepassword">
-                  <button className="bg-slate-200 font-medium rounded-md px-4 text-[#363A45] py-2">
+                  <button className="bg-slate-200 font-medium hover:bg-slate-300 transition-all ease-in-out duration-200   rounded-md px-4 text-[#363A45] py-2">
                     Change Password
                   </button>
                 </Link>
@@ -117,40 +118,40 @@ export default function Profile({ user }) {
               Playlist
             </h1>
           </div>
-          {user.playlist.length > 0 && (
+          {user.playlist.length > 0 ? (
             <div className="flex flex-col items-center md:flex-row md:flex-wrap">
               {user.playlist.map((item) => (
-                <div key={item.course} className="w-[290px] border">
+                <div key={item.course} className="w-[290px] bg-white-50 border">
                   <img className="object-cover" src={item.poster} />
                   <div className="flex items-center justify-between p-4">
                     <Link to={`/course/${item.course}`}>
-                      <button className="font-medium text-sm text-white py-2 px-4 bg-[#4C00FF]">
+                      <button className="font-normal text-sm text-white py-2 px-4 bg-purple-600 hover:bg-purple-800 transition-all ease-in-out duration-200 rounded-md">
                         Watch Now
                       </button>
                     </Link>
                     <button onClick={() => playlistRemoveHandler(item.course)}>
-                      <MdDelete size={28} color="#4C00FF" />
+                      <MdDelete className="text-purple-600" size={28}  />
                     </button>
                   </div>
                 </div>
               ))}
             </div>
-          )}
+          ) : (<p className="text-center">No playlist added</p>)}
           {/* modal */}
         </div>
       </div>
       {isOpen && (
-        <div className="absolute top-0 left-0 w-[100vw] h-[100vh] bg-black/50 flex items-center justify-center">
-          <div className="bg-white shadow-xl p-8">
+        <div className="fixed top-0 font-body left-0 w-[100vw] h-[100vh] bg-black/60 flex items-center justify-center">
+          <div className="bg-white shadow-xl p-8 rounded-xl">
             <div className="flex items-center justify-between">
-              <p className="text-lg font-semibold">Change Profile Photo</p>
+              <p className="text-xl font-medium">Change Profile Photo</p>
             </div>
             <form
               onSubmit={(e) => changeImageSubmitHandler(e, image)}
               className="flex flex-col gap-4 mt-6"
             >
               {imageprev && (
-                <img className="w-44 h-44 rounded-full p-4" src={imageprev} />
+                <img className="w-48 h-48 rounded-full p-4" src={imageprev} />
               )}
               <input
                 type="file"
@@ -160,7 +161,7 @@ export default function Profile({ user }) {
                 onChange={imageChange}
               />
 
-              <div className="bg-[#4C00FF] flex items-center justify-center py-3 w-full text-center h-[50px] text-white font-semibold">
+              <div className="bg-purple-600 hover:bg-purple-800 transition-all ease-in-out duration-200  flex items-center justify-center py-3 w-full text-center h-[50px] text-white font-medium">
                 <button type="submit">
                   {loading ? (
                     <div className="flex items-center justify-center">
@@ -185,7 +186,7 @@ export default function Profile({ user }) {
             </form>
             <button
               onClick={closeHandler}
-              className="bg-slate-200 w-full py-3 text-black font-semibold mt-4"
+              className="bg-slate-200 hover:bg-slate-300 transition-all ease-in-out duration-200 w-full py-3 text-black font-medium mt-4"
             >
               Cancel
             </button>

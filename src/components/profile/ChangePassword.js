@@ -28,7 +28,7 @@ export default function ChangePassword() {
   }, [dispatch, error, message]);
 
   return (
-    <div className="flex items-center justify-center p-20 h-[100vh]">
+    <div className="flex items-center font-body justify-center p-20 h-[100vh]">
       <div className="flex flex-col space-y-10">
         <div>
           <h1 className="text-3xl font-bold uppercase text-[#363A45]">
@@ -40,7 +40,7 @@ export default function ChangePassword() {
           className="flex flex-col space-y-6 items-center"
         >
           <input
-            className="py-3 bg-slate-100 px-4 font-body w-[300px]"
+            className="py-3 bg-slate-200 px-4 font-body w-[300px]"
             type="password"
             required
             id="password"
@@ -51,7 +51,7 @@ export default function ChangePassword() {
             placeholder="Enter old password"
           />
           <input
-            className="py-3 bg-slate-100 px-4 font-body w-[300px]"
+            className="py-3 bg-slate-200 px-4 font-body w-[300px]"
             type="password"
             required
             id="password"
@@ -61,7 +61,7 @@ export default function ChangePassword() {
             }}
             placeholder="Enter new password"
           />
-          <div className="bg-[#4C00FF] flex items-center justify-center py-3 w-[300px] text-center h-[50px] text-white font-semibold">
+          <div className="bg-purple-600 hover:bg-purple-800 transition-all ease-in-out duration-200 flex items-center justify-center py-3 w-[300px] text-center h-[50px] text-white font-medium">
             <button type="submit">
               {loading ? (
                 <div className="flex items-center justify-center">

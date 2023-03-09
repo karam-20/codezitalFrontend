@@ -3,14 +3,16 @@ import { Link } from "react-router-dom";
 import logo from "../assets/images/home.png";
 import homeAn from "../assets/images/home-animate.png";
 import Typewriter from "typewriter-effect";
-export default function Home() {
+export default function Home({user}) {
   return (
     <>
-      <section className="relative z-10 h-[110vh] flex flex-col md:flex-row justify-center md:justify-evenly items-center space-y-20 md:space-x-10 -mt-12 md:space-y-0 mx-auto font-body">
-        <div className="p-3 absolute animate-bouncy top-[150px] md:w-[500px] md:top-[200px] md:left-[930px] left-[20px]">
+      <section className="z-10 h-[100vh] flex flex-col md:flex-row justify-center md:justify-evenly -mt-12 items-center space-y-20 md:space-x-10 md:space-y-0 mx-auto font-body">
+        
+        
+        <div className="flex relative flex-col md:flex-row-reverse md:items-center md:gap-60 items-center space-y-28">
+        <div className="p-3 absolute animate-bouncy top-[150px] md:w-[500px] md:top-[50px] md:left-[630px] left-[20px]">
           <img src={homeAn} alt="logo-home" />
         </div>
-        <div className="flex flex-col md:flex-row-reverse md:items-center md:gap-60 items-center space-y-28">
           <div className="w-[240px] md:w-[320px]">
             <img src={logo} alt="logo-home" />
           </div>
@@ -32,7 +34,7 @@ export default function Home() {
               The Ultimate Guide To Ace Web Development
             </p>
             <Link to="/courses">
-              <button className="bg-[#9875FB] transition duration-200  py-2 px-5 text-base font-medium text-white rounded-md">
+              <button className="bg-purple-600 hover:bg-purple-800 transition-all ease-in-out duration-200 py-2 px-5 text-base font-medium text-white rounded-md">
                 Explore Now
               </button>
             </Link>

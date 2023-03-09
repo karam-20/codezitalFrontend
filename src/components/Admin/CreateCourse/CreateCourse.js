@@ -50,14 +50,14 @@ export default function CreateCourse() {
 
   return (
     <div className="grid font-body text-[#363A45] grid-cols-1 md:grid-cols-6 mx-auto">
-      <div className="md:col-span-5 mt-20">
+      <div className="md:col-span-5 mt-20 md:mt-10 items-center justify-center mx-auto">
         <form onSubmit={submitHandler} className="flex flex-col p-6 md:p-16">
           <h1 className="text-3xl mb-8 md:text-left font-bold uppercase text-left">
             Create Course
           </h1>
           <div className="flex flex-col space-y-8">
             <input
-              className="py-3 bg-slate-100 px-4 font-body w-full"
+              className="py-3 bg-slate-200 px-4 font-body w-full"
               type="text"
               required
               id="title"
@@ -68,7 +68,7 @@ export default function CreateCourse() {
               placeholder="Enter title"
             />
             <input
-              className="py-3 bg-slate-100 px-4 font-body w-full"
+              className="py-3 bg-slate-200 px-4 font-body w-full"
               type="text"
               required
               id="description"
@@ -79,7 +79,7 @@ export default function CreateCourse() {
               placeholder="Description"
             />
             <input
-              className="py-3 bg-slate-100 px-4 font-body w-full"
+              className="py-3 bg-slate-200 px-4 font-body w-full"
               type="text"
               required
               id="createdBy"
@@ -114,7 +114,7 @@ export default function CreateCourse() {
                 alt="course-logo"
               />
             )}
-            <div className="bg-[#9875FB] flex items-center justify-center py-3 w-full text-center h-[50px] text-white font-semibold">
+            <div className="bg-purple-600 hover:bg-purple-800 transition-all ease-in-out duration-200 rounded-md flex items-center justify-center py-3 w-full text-center h-[50px] text-white font-medium">
           <button type="submit">
             {loading ? (
               <div className="flex items-center justify-center">

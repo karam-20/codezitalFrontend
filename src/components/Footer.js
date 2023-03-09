@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <div className="bg-[#9875FB] font-body text-white px-10 py-20">
+    <div className="bg-purple-600 font-body mt-24 text-white px-10 py-10">
       <div className="flex flex-col justify-evenly md:flex-row space-y-10">
         <div>
-          <p className="text-4xl tracking-widest font-light">Code Zital</p>
+          <p className="text-4xl tracking-widest font-light">FrontEnd Forearms</p>
           <p className="text-xl mt-4 font-medium ">
             The Ultimate Guide To Ace Web Development.
           </p>

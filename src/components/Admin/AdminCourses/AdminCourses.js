@@ -61,7 +61,7 @@ export default function AdminCourses() {
   }, [dispatch, error, message]);
   return (
     <div className="relative text-[#363A45] font-body grid grid-cols-1 md:grid-cols-6 mx-auto">
-      <div className="md:col-span-5 mt-20 p-4 md:p-16">
+      <div className="md:col-span-5 h-[100vh] mt-20 p-4 md:p-16">
         <h1 className="text-3xl mb-10 md:text-left font-bold uppercase">
           All available courses
         </h1>
@@ -126,16 +126,16 @@ function Row({ item, courseDetailHandler, deleteCourseHandler, loading }) {
           <div className="flex justify-end items-center gap-5">
             <button
               onClick={() => courseDetailHandler(item._id, item.title)}
-              className="w-[140px] bg-purple-500 text-white py-2 rounded-lg text-sm font-medium"
+              className="w-[140px] bg-purple-600 hover:bg-purple-800 transition-all ease-in-out duration-200 text-white py-2 rounded-lg text-sm font-normal"
             >
               View Lectures
             </button>
             <button
-              className="text-purple-500"
+              className="text-purple-600 hover:text-purple-800 transition-all ease-in-out duration-200"
               onClick={() => deleteCourseHandler(item._id)}
             >
               <RiDeleteBin7Fill
-                className="bg-[#d7c5ff] p-2 rounded-md"
+                className="bg-[#d7c5ff] hover:bg-gray-200 p-2 rounded-md"
                 size={30}
               />
             </button>

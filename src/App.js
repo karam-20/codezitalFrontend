@@ -46,14 +46,15 @@ function App() {
     dispatch(getMyProfile());
   }, [dispatch]);
   return (
+    
     <Router>
       {loading ? (
         <Loader />
       ) : (
-        <>
+        <div className="bg-gray-100">
           <Header isAuthenticated={isAuthenticated} user={user} />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home/>} />
             <Route
               path="/profile"
               element={
@@ -179,9 +180,10 @@ function App() {
           </Routes>
           <Footer />
           <Toaster />
-        </>
+        </div>
       )}
     </Router>
+    
   );
 }
 

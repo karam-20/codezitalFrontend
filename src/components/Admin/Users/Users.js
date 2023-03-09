@@ -35,7 +35,7 @@ export default function Users() {
     dispatch(getAllUsers());
   }, [dispatch, error, message]);
   return (
-    <div className="font-body text-[#363A45] grid grid-cols-1 md:grid-cols-6 mx-auto">
+    <div className="font-body text-[#363A45] h-[100vh] grid grid-cols-1 md:grid-cols-6 mx-auto">
       <div className="md:col-span-5 mt-20 p-6 md:p-16 ">
         <h1 className="text-3xl md:text-left font-bold uppercase">All Users</h1>
         <div className="w-full md:w-full mt-10 overflow-x-auto">
@@ -81,14 +81,14 @@ function Row({ item, changeRoleHandler, deleteUserHandler ,loading}) {
         <div className="flex items-center gap-4">
           <button
             onClick={() => changeRoleHandler(item._id)}
-            className="w-[140px] bg-purple-500 text-white py-2 rounded-lg text-sm font-medium"
+            className="w-[140px] bg-purple-600 hover:bg-purple-800 transition-all ease-in-out duration-200 text-white py-2 rounded-lg text-sm font-normal"
           >
             Change Role
           </button>
           
-          <button className="text-purple-500" onClick={() => deleteUserHandler(item._id)}>
+          <button className="text-purple-500 hover:text-purple-800 transition-all ease-in-out duration-200" onClick={() => deleteUserHandler(item._id)}>
             {loading ? (
-              <div className="flex p-1 bg-[#d7c5ff] rounded-md items-center justify-center">
+              <div className="flex p-1 bg-[#d7c5ff] hover:bg-gray-400 rounded-md items-center justify-center">
                 <Oval
                   height={18}
                   width={18}
@@ -103,7 +103,7 @@ function Row({ item, changeRoleHandler, deleteUserHandler ,loading}) {
                 />
               </div>
             ) : (
-              <RiDeleteBin7Fill className="bg-[#d7c5ff] p-2 rounded-md" size={30}/>
+              <RiDeleteBin7Fill className="bg-[#d7c5ff] hover:bg-gray-200 transition-all ease-in-out duration-200 p-2 rounded-md" size={30}/>
             )}
           </button>
         

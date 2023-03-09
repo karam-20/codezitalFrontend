@@ -25,11 +25,11 @@ export default function ForgotPassword() {
     }
   }, [dispatch, error, message]);
   return (
-    <div className="w-full flex flex-col justify-center items-center mx-auto mt-20 h-[600px] space-y-10">
-      <h1 className="text-2xl font-semibold">Forgot Password</h1>
+    <div className="w-full flex flex-col justify-center items-center h-[100vh] mx-auto justify-centerh-[600px] space-y-10">
+      <h1 className="text-3xl md:text-left font-bold uppercase">Forgot Password</h1>
       <form onSubmit={submitHandler} className="flex flex-col space-y-4">
         <input
-          className="py-3 px-4 font-body w-[300px] bg-slate-100"
+          className="py-3 px-4 font-body w-[300px] bg-slate-200"
           type="email"
           required
           id="email"
@@ -39,7 +39,7 @@ export default function ForgotPassword() {
           }}
           placeholder="abc@email.com"
         />
-        <div className="bg-[#4C00FF] flex items-center justify-center py-3 w-[300px] text-center h-[50px] text-white font-semibold">
+        <div className="bg-purple-600 hover:bg-purple-800 transition-all ease-in-out duration-200 rounded-md flex items-center justify-center py-3 w-[300px] text-center h-[50px] text-white font-semibold">
           <button type="submit">
             {loading ? (
               <div className="flex items-center justify-center">

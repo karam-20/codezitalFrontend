@@ -10,9 +10,8 @@ import { Link, useLocation } from "react-router-dom";
 export default function Sidebar() {
   const Location = useLocation();
   return (
-    <div className="flex flex-col md:h-[100vh] space-y-6 items-center md:items-start p-16 shadow-xl">
-      
-      <LinkButton
+   <div className="bg-purple-800 p-8 flex shadow-2xl shadow-purple-600 flex-col gap-4 font-normal text-lg rounded-xl font-body text-white absolute top-36 right-7">
+     <LinkButton
         active={Location.pathname === "/admin/admincourses"}
         url={"admincourses"}
         Icon={RiEyeFill}
@@ -30,7 +29,7 @@ export default function Sidebar() {
         Icon={RiAddCircleFill}
         text="Create Course"
       />
-    </div>
+   </div>
   );
 }
 function LinkButton({ url, Icon, text, active }) {
@@ -38,8 +37,8 @@ function LinkButton({ url, Icon, text, active }) {
     <Link to={`/admin/${url}`}>
       <button
         className={`flex ${
-          active ? "text-purple-700" : ""
-        } items-center gap-2 text-lg font-medium`}
+          active ? "bg-white/40 transition-all ease-in-out duration-200 p-2 rounded-xl" : ""
+        } items-center bg-purple-800 transition-all ease-in-out duration-200 p-2 gap-2 text-lg font-medium`}
       >
         <Icon />
         {text}
